@@ -1,0 +1,16 @@
+.idea
+.tmp
+.build
+.bamboo-pass
+.vscode
+.nyc_output
+.DS_Store
+
+build
+dist
+coverage
+node_modules
+
+*.jar
+*.log
+*.env
