@@ -1,6 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const colors = require('colors/safe');
+
+const connectDB = require('./config/db');
+
+// Conecta ao monogo
+connectDB();
 
 const app = express();
 
