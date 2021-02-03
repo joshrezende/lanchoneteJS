@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { io } from "socket.io-client";
+import { Layout, Menu } from 'antd';
+import Home from "./pages/home";
+import Orders from "./pages/orders";
+import "antd/dist/antd.css";
+import "./App.css"
+import { FurflesHeader } from "./global/header";
 
-function App() {
+const { Header, Content, Footer } = Layout;
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout className="layout">
+        <FurflesHeader />
+        <Content style={{ padding: '50px' }}>
+          <div className="site-layout-content">
+            <Switch>
+              {/* <Route path="/orders">
+                <Home />
+              </Route> */}
+              <Route path="/">
+                <Orders />
+              </Route>
+            </Switch>
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>LanchoneteJS @ B2W | Unicorn Tech | reactRio</Footer>
+      </Layout>
+
+    </Router>
   );
 }
 

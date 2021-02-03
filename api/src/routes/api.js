@@ -1,9 +1,11 @@
 const express = require('express');
-// const usersRoute = require('./users');
+const productsRoute = require('./products');
+const ordersRoute = require('./orders');
 
 const router = express.Router();
 
-// router.use('/users', usersRoute);
+router.use('/products', productsRoute);
+router.use('/orders', ordersRoute);
 
 router.use('/', (req, res) => {
   res.status(404).json({
